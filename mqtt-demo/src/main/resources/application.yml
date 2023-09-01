@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: mqttdemo
+
+server:
+  port: 8080
+mqtt:
+  url: tcp://123.249.33.96:1883
+  username: guest
+  password: guest
+  receiver:
+    defaultTopic: receive_iot_topic/#,receive_chat_topic/#
+    clientId: ${random.value}
+  sender:
+    defaultTopic: test_send
+    clientId: mqttProducer
+
