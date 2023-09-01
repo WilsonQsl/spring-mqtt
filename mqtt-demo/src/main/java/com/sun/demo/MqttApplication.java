@@ -3,7 +3,10 @@ package com.sun.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
- * @author wilson
+ * @author qiansl
+ * @version 1.0
+ * @date 2023/8/29 21:15
+ * @description
  */
 @SpringBootApplication
 public class MqttApplication {
