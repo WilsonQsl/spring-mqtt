@@ -21,23 +21,16 @@ public class MqttServiceImpl implements MessageHandler {
 
     @Override
     public void handleMessage(Message<?> message) throws MessagingException {
-        String topic = (String)message.getHeaders().get("mqtt_receivedTopic");
+        //String topic = (String) message.getHeaders().get("mqtt_receivedTopic");
         String payload = (String) message.getPayload();
-        if (topic.equals("receive_iot_topic")){
-            DeviceDTO entity = JSONObject.parseObject(payload, DeviceDTO.class);
-            if (entity != null) {
-                //不是心跳数据
-                if (!entity.getTypes().equals("heartbeat")) {
-                    //处理数据入库
-                    System.out.println("上报数据："+entity);
-                }
+        DeviceDTO entity = JSONObject.parseObject(payload, DeviceDTO.class);
+        if (entity != null) {
+            //不是心跳数据
+            if (!entity.getTypes().equals("heartbeat")) {
+                //处理数据入库
+                System.out.println("上报数据：" + entity);
             }
         }
-
-        if (topic.equals("receive_chat_topic")){
-
-        }
-
     }
 }
 
