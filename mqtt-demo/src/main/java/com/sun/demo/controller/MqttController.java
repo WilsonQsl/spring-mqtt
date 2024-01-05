@@ -51,5 +51,15 @@ public class MqttController {
         mqttService.sendToMqtt(topic,payload);
         return ApiResult.success(null, "发送成功");
     }
+
+    @PostMapping("/sendToQosTopic")
+    public ApiResult sendToQosTopic(String topic, String payload) {
+        /**
+         * 想接收方方法消息-主题：receive_iot_topic/#,receive_chat_topic/#
+         */
+        mqttService.sendToMqtt(topic,1,payload);
+        System.out.println("发送成功=>" + "主题：" + topic + "  载荷:" + payload);
+        return ApiResult.success(null, "发送成功");
+    }
 }
 

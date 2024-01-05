@@ -10,9 +10,12 @@ mqtt:
   password: guest
   receiver:
     defaultTopic: receive_iot_topic/#,receive_chat_topic/#
-    clientId: ${random.value}
+    clientId: mqttreceiver
   sender:
     defaultTopic: test_send
     clientId: mqttProducer
 
+logging:
+  level:
+    org.eclipse.paho: debug
 
